@@ -1,0 +1,17 @@
+services:
+  db:
+    container_name: "postgree.gnrd"
+    image: "postgres:16.3"
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    networks:
+      - gnrd-network
+    volumes:
+      - postgre_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: clave123
+networks:
+  gnrd-network:
+volumes:
+  postgre_data:
